@@ -34,4 +34,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/ovrap3x/kasm-obsidian:latest
+          tags: ghcr.io/ovrap3x/kasmobsidian:latest
