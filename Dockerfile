@@ -9,12 +9,10 @@ ENV INST_SCRIPTS $STARTUPDIR/install
 WORKDIR $HOME
 
 ######### Customize Container Here ###########
-RUN apt update
-RUN apt install flatpak -y
-RUN flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-RUN flatpak install flathub md.obsidian.Obsidian -y
+RUN curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
+RUN deb-get install obsidian
 
-RUN echo "/usr/bin/desktop_ready && flatpak run md.obsidian.Obsidian &" > $STARTUPDIR/custom_startup.sh \
+RUN echo "/usr/bin/desktop_ready && Obsidian &" > $STARTUPDIR/custom_startup.sh \
 && chmod +x $STARTUPDIR/custom_startup.sh
 
 
