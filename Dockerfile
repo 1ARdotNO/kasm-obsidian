@@ -9,6 +9,9 @@ ENV INST_SCRIPTS $STARTUPDIR/install
 WORKDIR $HOME
 
 ######### Customize Container Here ###########
+RUN apt update
+RUN apt install software-properties-common sudo -y
+RUN apt clean
 RUN curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
 RUN deb-get install obsidian
 
